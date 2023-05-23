@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>mini pouya dashboard</title>
+  </head>
+  <body class="bg-violet-200 container mx-auto px-4">
+    <!-- dashboard -->
+    <div class="flex flex-row-reverse items-start justify-around m-5">
+      <!-- profile col -->
+      <div class="flex flex-col">
+        <!-- pofile card -->
+        <div
+          class="bg-white ml-4 w-80 h-64 rounded-2xl flex-col justify-start items-center"
+        >
+          <!-- profile header -->
+          <div
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-start"
+          >
+            <h3 class="font-semibold text-violet-200 text-lg">My Profile</h3>
+          </div>
+          <!-- profile info -->
+          <div class="flex items-center justify-center p-4">
+            <!-- user pic -->
+            <img
+              class="drop-shadow-lg rounded-full w-28 h-28 object-cover mr-4"
+              src="../assets/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"
+              alt="user pic"
+            />
+            <!-- user info -->
+            <div>
+              <h4 class="mb-1 text-lg font-medium text-violet-900">
+                zahra sarabi
+              </h4>
+              <h5 class="text-sm text-violet-400 opacity-60">
+                Front-end Developer
+              </h5>
+            </div>
+          </div>
+          <!-- profile icon -->
+          <div class="flex items-center justify-center m-3 divide-solid">
+            <!-- message icon -->
+            <i
+              title="message"
+              class="cursor-pointer hover:text-slate-900 text-2xl pr-4 border-violet-100 text-violet-900 fa-solid fa-message"
+            ></i>
+            <!-- alart icon -->
+            <i
+              title="alart"
+              class="cursor-pointer hover:text-slate-900 text-2xl border-l-2 border-violet-100 pl-4 pr-4 text-violet-900 fa-solid fa-bell"
+            ></i>
+            <!-- edit icon -->
+            <i
+              title="edit"
+              class="cursor-pointer hover:text-slate-900 text-2xl border-l-2 border-violet-100 pl-4 text-violet-900 fa-solid fa-pen"
+            ></i>
+          </div>
+        </div>
+        <!-- profile welcome -->
+        <div class="relative shrink bg-white w-80 h-auto rounded-2xl m-5">
+          <!-- profile welcome header -->
+          <div
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-start"
+          >
+            <h3 class="font-semibold text-violet-200 text-lg">
+              Poyagaran Holding
+            </h3>
+          </div>
+          <!-- profile welcome body -->
+          <div class="flex flex-col items-center justify-around">
+            <h4 dir="rtl" class="text-center mt-8 mb-8">
+              به <strong> هیواد پرواز کیش</strong> خوش آمدید!
+            </h4>
+            <!-- add report btn -->
+            <button
+              onclick="window.location='add-reports.html';"
+              class="flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
+            >
+              <p class="font-semibold text-xl text-center it">Add reports</p>
+              <i class="text-xl ml-4 fa-solid fa-circle-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- dashboard body-->
+      <div class="w-[55rem] h-64 shrink container 2xl:w-[90rem]">
+        <!-- creat reports -->
+        <div
+          class="bg-white h-auto rounded-2xl flex-col justify-start items-center"
+        >
+          <!-- creat header -->
+          <div
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-between"
+          >
+            <h3 class="font-semibold text-violet-200 text-lg">
+              list of reports
+            </h3>
+            <i class="pr-4 text-violet-200 fa-solid fa-chevron-down"></i>
+          </div>
+          <!-- creat body -->
+          <div class="flex flex-col">
+            <!-- creat report cart1 -->
+            <div
+              dir="rtl"
+              class="bg-gray-200 p-4 m-4 h-20 rounded-2xl flex justify-start items-center 2xl:justify-between"
+            >
+              <!-- info  -->
+              <div class="flex items-center justify-between">
+                <i
+                  class="text-xl text-violet-900 fa-solid fa-plane-departure"
+                ></i>
+                <p class="text-lg p-4 ml-4">شماره قرارداد : 1245789636</p>
+                <p class="text-lg p-4 ml-4">تاریخ قرارداد : 1401/02/03</p>
+              </div>
+              <!-- button -->
+              <div
+                class="flex flex-col items-center justify-center md:flex-row"
+              >
+                <button
+                  class="ml-4 text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
+                >
+                  مشاهده
+                </button>
+                <button
+                  class="text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
+                >
+                  دانلود
+                </button>
+              </div>
+            </div>
+            <!-- creat report cart2 -->
+            <div
+              dir="rtl"
+              class="bg-gray-200 p-4 m-4 h-20 rounded-2xl flex justify-start items-center 2xl:justify-between"
+            >
+              <!-- info  -->
+              <div class="flex items-center justify-between">
+                <i
+                  class="text-xl text-violet-900 fa-solid fa-plane-departure"
+                ></i>
+                <p class="text-lg p-4 ml-4">شماره قرارداد : 1245789636</p>
+                <p class="text-lg p-4 ml-4">تاریخ قرارداد : 1401/02/03</p>
+              </div>
+              <!-- button -->
+              <div
+                class="flex flex-col items-center justify-center md:flex-row"
+              >
+                <button
+                  class="ml-4 text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
+                >
+                  مشاهده
+                </button>
+                <button
+                  class="text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
+                >
+                  دانلود
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

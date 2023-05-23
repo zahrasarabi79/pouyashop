@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>mini pouya dashboard</title>
+  </head>
+  <body>
+    <!-- dashboard seach box -->
+    <div
+    class="relative rounded-xl w-[55rem] h-64 shrink bg-purple-400 flex-col justify-end"
+  >
+    <!-- dashboard seach box -titr &date -->
+    <div class="">
+      <h1 class="text-2xl font-bold pl-10 pt-16">Poyagaran Holding</h1>
+      <h2 class="text-sm font-normal pt-4 pl-10 text-violet-900">
+        monday , 23 April 2023
+      </h2>
+    </div>
+    <!-- travel svg  -->
+    <img
+      class="absolute bottom-0 right-4 w-64 h-64"
+      src="../assets/images/Travel insurance-rafiki.svg"
+      alt=""
+    />
+    <!-- search box -->
+    <form class="relative" action="">
+      <i
+        class="cursor-pointer bottom-3 left-[24.5rem] absolute fa-solid fa-magnifying-glass"
+      ></i>
+
+      <input
+        class="ml-10 rounded-lg border border-gray-300 focus:outline-none pl-4 bg-white w-96 h-10 mt-10 placeholder:text-sm placeholder:font-thin"
+        type="search"
+        ::-webkit-search-results-button
+        autocomplete="off"
+        name="search"
+        id="search"
+        placeholder="search"
+      />
+    </form>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>mini pouya dashboard</title>
+  </head>
+  <body class="bg-violet-200 container mx-auto px-4">
+    <!-- dashboard -->
+    <div class="flex flex-row-reverse items-start justify-around m-5">
+      <!-- profile col -->
+      <div class="flex flex-col">
+        <!-- profile welcome -->
+        <div class="relative shrink bg-white w-80 h-auto rounded-2xl ml-5">
+          <!-- profile welcome header -->
+          <div
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-start"
+          >
+            <h3 class="font-semibold text-violet-200 text-lg">
+              Poyagaran Holding
+            </h3>
+          </div>
+          <!-- profile welcome body -->
+          <div class="flex flex-col items-center justify-around">
+            <!-- profile welcome titre -->
+            <h4 dir="rtl" class="text-center mt-8 mb-8">
+              به <strong> هیواد پرواز کیش</strong> خوش آمدید!
+            </h4>
+            <!-- add report btn -->
+            <button
+              onclick="window.location='dashboard.html';"
+              class="flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
+            >
+              <p class="font-semibold text-xl text-center">List of reports</p>
+              <i class="text-xl ml-4 fa-solid fa-circle-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- dashboard body-->
+      <div class="w-[55rem] h-64 shrink container 2xl:w-[90rem]">
+        <!-- creat reports -->
+        <div
+          class="bg-white h-auto rounded-2xl flex-col justify-start items-center"
+        >
+          <!-- creat header -->
+          <div
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-between"
+          >
+            <h3 class="font-semibold text-violet-200 text-lg">Add reports</h3>
+            <i class="pr-4 text-violet-200 fa-solid fa-chevron-down"></i>
+          </div>
+          <!-- creat body -->
+          <div class="flex flex-col items-center">
+            <!-- header -->
+            <div>
+              <h2 dir="auto" class="p-4 text-center font-semibold text-lg">
+                گزارش خرید و فروش هیواد پرواز کیش
+              </h2>
+            </div>
+            <!-- inputs -->
+            <form class="m-8 flex flex-col" dir="rtl" action="">
+              <!-- اطلاعات قرارداد -->
+              <div class="mb-8 relative">
+                <h2 class="mr-8 absolute -top-4 font-semibold text-xl">
+                  اطلاعات قرارداد
+                </h2>
+                <div
+                  class="top-4 p-8 rounded-xl border border-gray-100 flex items-center justify-between"
+                >
+                  <!-- شماره قرارداد -->
+                  <div class="flex items-center justify-center">
+                    <label
+                      class="ml-4 text-lg font-semibold text-violet-900"
+                      for="num-Contract"
+                      >شماره قرارداد:
+                    </label>
+
+                    <input
+                      class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                      type="text"
+                      name="num-Contract"
+                    />
+                  </div>
+                  <!-- تاریخ قرارداد -->
+                  <div class="flex items-center justify-center">
+                    <label
+                      class="ml-4 text-lg font-semibold text-violet-900"
+                      for="num-Contract"
+                      >تاریخ قرارداد:
+                    </label>
+
+                    <input
+                      class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                      type="text"
+                      name="num-Contract"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- اطلاعات مسافران -->
+              <div class="mb-8 relative">
+                <h2 class="mr-8 absolute -top-4 font-semibold text-xl">
+                  اطلاعات مسافران
+                </h2>
+                <div class="top-4 p-8 rounded-xl border border-gray-100">
+                  <!-- نام مسافران-->
+                  <div class="flex flex-col items-start">
+                    <!-- Passengers input -->
+                    <div class="flex items-center justify-start mb-4 container">
+                      <label
+                        class="ml-4 text-lg font-semibold text-violet-900"
+                        for="num-Contract"
+                        >نام مسافران:
+                      </label>
+
+                      <input
+                        id="personInput"
+                        class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                        type="text"
+                        name="num-Contract"
+                      />
+                      <button
+                        onclick="addPerson"
+                        id="addPersonBtn"
+                        type="button"
+                        class="mr-4 p-2 rounded-lg h-10 w-10 flex items-center justify-around"
+                      >
+                        <i
+                          class="text-4xl text-violet-900 fa-solid fa-square-plus"
+                        ></i>
+                      </button>
+                    </div>
+                    <!-- name of passengers -->
+                    <div id="personDiv" class="grid grid-cols-4 gap-4">
+                      <!-- passenger1 -->
+                      <!-- <span
+                        class="preson-style flex items-center p-4 rounded-lg"
+                      >
+                        <i
+                          class="hover:text-red-600 cursor-pointer fa-solid fa-user-minus"
+                        ></i>
+                        <h3 id="personName" class="mr-4 text-center">
+                          zahra sarabi
+                        </h3>
+                      </span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- اطلاعات خرید-->
+              <div class="mb-8 relative">
+                <h2 class="mr-8 absolute -top-4 font-semibold text-xl">
+                  اطلاعات خرید/فروش
+                </h2>
+                <div class="top-4 p-8 rounded-xl border border-gray-100">
+                  <div class="flex flex-col">
+                    <!-- نوع گزارش قرارداد -->
+                    <div class="mb-8">
+                      <span
+                        class="text-xl font-medium text-violet-900"
+                        x-text="typeofcontract"
+                        >نوع گزارش قرارداد:
+                      </span>
+                      <select
+                        dir="rtl"
+                        class="focus:outline-none cursor-pointer bg-gray-300 rounded-lg p-4"
+                        x-model="typeofcontract"
+                      >
+                        <option class="p-4 text-lg font-medium text-violet-900">
+                          خرید
+                        </option>
+                        <option class="p-4 text-lg font-medium text-violet-900">
+                          فروش
+                        </option>
+                      </select>
+                    </div>
+                    <!--اینپوت های ساخته شده -->
+                    <div id="parentPaymentDiv" class="deleteDiv flex flex-col">
+                      <div
+                        
+                        class="relative flex bg-gray-50 rounded-lg p-4 mb-4 items-center justify-between"
+                      >
+                        <div class="flex flex-col items-stretch">
+                          <!-- input ticket -->
+                          <div
+                            class="flex flex-col justify-start items-start gap-4 mb-8 2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center"
+                          >
+                            <!-- input number of tickets -->
+                            <div class="flex items-center justify-center">
+                              <label
+                                class="ml-4 text-lg text-right font-semibold text-violet-900"
+                                for="Ticket"
+                                >تعداد :</label
+                              >
+                              <input
+                                class="text-lg text-center font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                                type="number"
+                              />
+                            </div>
+                            <!-- info ticket -->
+                            <div class="flex items-center justify-center">
+                              <label
+                                class="text-center ml-4 text-lg font-semibold text-violet-900"
+                                for="Ticket"
+                                >عنوان هزینه:</label
+                              >
+                              <input
+                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                                type="text"
+                                class=""
+                              />
+                            </div>
+                            <!-- input presenter -->
+                            <div class="flex items-center justify-center">
+                              <label
+                                class="ml-4 text-lg font-semibold text-violet-900"
+                                for="Ticket"
+                                >مجری:</label
+                              >
+                              <input
+                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                                type="text"
+                                class=""
+                              />
+                            </div>
+                          </div>
+                          <!-- input payment -->
+                          <div
+                            class="flex flex-col justify-start items-start gap-4 mb-8 2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center"
+                          >
+                            <!-- input payment method -->
+                            <div class="flex items-center justify-center">
+                              <label
+                                class="ml-4 text-lg font-semibold text-violet-900"
+                                for="payment"
+                                >بانک/شرکاء:</label
+                              >
+                              <input
+                                class="text-lg font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                                type="text"
+                                name="payment"
+                              />
+                            </div>
+                            <!--  payment -->
+                            <div class="flex items-center justify-center">
+                              <label
+                                class="ml-4 text-lg font-semibold text-violet-900"
+                                for="payment"
+                                >مبلغ پرداختی:</label
+                              >
+                              <input
+                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                                type="text"
+                                name="payment"
+                              />
+                            </div>
+                            <!-- input payment day -->
+                            <div class="flex items-center justify-center">
+                              <label
+                                class="ml-4 text-lg font-semibold text-violet-900"
+                                for="payment"
+                                >تاریخ پرداخت:</label
+                              >
+                              <input
+                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                                type="text"
+                                name="payment"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+
+                    <!-- btn add -->
+                    <button
+                      onclick="addPaymentInfo"
+                      type="button"
+                      class="addPaymentbtn hover:bg-violet-700 hover:text-white text-lg text-violet-900 font-semibold bg-violet-300 rounded-lg p-4 mb-8"
+                    >
+                      افزودن اطلاعات جدید
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!-- submit btn -->
+            <button
+              class="text-center font-semibold text-2xl m-8 flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
+            >
+              ثبت گزارش
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../src/js/add-reports.js"></script>
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+  ></script>
+</html>
