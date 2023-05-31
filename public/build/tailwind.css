@@ -460,9 +460,6 @@ input[type="number"]::-webkit-inner-spin-button,
 .sticky{
   position: sticky;
 }
-.-right-1{
-  right: -0.25rem;
-}
 .-top-10{
   top: -2.5rem;
 }
@@ -504,9 +501,6 @@ input[type="number"]::-webkit-inner-spin-button,
 }
 .right-\[0\.85rem\]{
   right: 0.85rem;
-}
-.top-0{
-  top: 0px;
 }
 .top-2{
   top: 0.5rem;
@@ -907,10 +901,6 @@ input[type="number"]::-webkit-inner-spin-button,
 .font-semibold{
   font-weight: 600;
 }
-.text-red-600{
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
-}
 .text-slate-900{
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity));
@@ -947,64 +937,51 @@ input[type="number"]::-webkit-inner-spin-button,
   --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-
 .placeholder\:text-sm::-moz-placeholder{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-
 .placeholder\:text-sm::placeholder{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-
 .placeholder\:font-thin::-moz-placeholder{
   font-weight: 100;
 }
-
 .placeholder\:font-thin::placeholder{
   font-weight: 100;
 }
-
 .hover\:bg-violet-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(109 40 217 / var(--tw-bg-opacity));
 }
-
 .hover\:text-red-600:hover{
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
-
 .hover\:text-slate-900:hover{
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity));
 }
-
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-
 .focus\:outline-indigo-900:focus{
   outline-color: #312e81;
 }
-
 .focus\:outline-violet-900:focus{
   outline-color: #4c1d95;
 }
-
 @media (min-width: 768px){
   .md\:flex-row{
     flex-direction: row;
   }
 }
-
 @media (min-width: 1536px){
   .\32xl\:flex{
     display: flex;
