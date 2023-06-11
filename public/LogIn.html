@@ -33,50 +33,57 @@
         <div class="flex flex-col items-center">
           <i class="z-10 -top-10 absolute fa-solid fa-circle-user fa-6x"></i>
           <div
-            class="z-[9] -top-12 absolute rounded-full bg-gray-200 w-28 h-28"
+            class="z-[9] -top-12 absolute rounded-full bg-gray-50 w-28 h-28"
           ></div>
           <h2 class="font-bold text-2xl pt-20 pb-3">Log In</h2>
         </div>
         <!-- inputs -->
-        <form id="form" class="flex flex-col items-center justify-around" action="">
+        <form
+          id="form"
+          class="gap-2 flex flex-col items-center justify-around "
+          action=""
+        >
           <!-- username input -->
           <div class="pb-4 relative">
             <label class="ml-2 block text-lg font-medium" for="user name"
               >username</label
             >
-            <i class="absolute bottom-8 left-3 fa-solid fa-user"> |</i>
+            <i class="absolute bottom-16 left-3 fa-solid fa-user"> |</i>
             <input
-              class="pl-9 placeholder:text-sm w-80 focus:outline-indigo-900 bg-gray-100 p-2 rounded-lg border-2 border-gray-500"
+              class="pl-9 placeholder:text-sm w-80 focus:outline-indigo-900 bg-gray-100 p-2 rounded-lg border-2 border-gray-500 mb-2"
               type="text"
               id="username"
               placeholder="Enter your username"
-              required
+              
             />
+            <p id="usernameError" class="userError text-xs text-red-600 rounded-md w-full px-2 h-6 flex items-center"></p>
+
           </div>
           <!-- password input -->
 
-          <div class="pb-10 relative">
+          <div class="pb-4 relative">
             <label class="ml-2 block text-lg font-medium" for="user name"
               >password</label
             >
-            <i class="absolute bottom-14 left-3 fa-solid fa-lock"> |</i>
+            <i class="absolute bottom-16 left-3 fa-solid fa-lock"> |</i>
             <i
               onclick="myFunction(this)"
               id="eyeicon"
-              class="absolute bottom-14 right-3 cursor-pointer fa-solid fa-eye-slash"
+              class="absolute bottom-16 right-3 cursor-pointer fa-solid fa-eye-slash"
             ></i>
 
             <input
-              class="pl-9 placeholder:text-sm w-80 focus:outline-indigo-900 bg-gray-100 p-2 rounded-lg border-2 border-gray-500"
+              class="pl-9 placeholder:text-sm w-80 focus:outline-indigo-900 bg-gray-100 p-2 rounded-lg border-2 border-gray-500 mb-2"
               type="password"
               id="password"
               placeholder="Enter your password"
-              required
+              
             />
+            <p id="passwordError" class="userError  text-xs text-red-600  rounded-md w-full px-2 h-6 flex items-center"></p>
           </div>
 
           <!-- button submit -->
-          <div class="pt-1 pb-3">
+          <div class="py-3">
             <button
               id="getDataBtn"
               class="text-xl text-center font-normal rounded-lg text-white bg-slate-900 pr-5 pl-5 pt-2 pb-2"
@@ -86,14 +93,14 @@
             </button>
           </div>
           <!-- forgot password -->
-          <div class="text-slate-900 pt-2 pb-4">
+          <!-- <div class="text-slate-900 pt-2 pb-4">
             <h3 class="font-normal text-sm cursor-pointer">
               forgot your password?
             </h3>
-          </div>
+          </div> -->
         </form>
       </div>
     </div>
-    <script src="../src/js/login.js"></script>
+    <script type="module" src="../src/js/login.js"></script>
   </body>
 </html>

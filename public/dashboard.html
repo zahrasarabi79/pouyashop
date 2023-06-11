@@ -19,55 +19,8 @@
     <div class="flex flex-row-reverse items-start justify-around m-5">
       <!-- profile col -->
       <div class="flex flex-col">
-        <!-- pofile card -->
-        <div
-          class="bg-white ml-4 w-80 h-64 rounded-2xl flex-col justify-start items-center"
-        >
-          <!-- profile header -->
-          <div
-            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-start"
-          >
-            <h3 class="font-semibold text-violet-200 text-lg">My Profile</h3>
-          </div>
-          <!-- profile info -->
-          <div class="flex items-center justify-center p-4">
-            <!-- user pic -->
-            <img
-              class="drop-shadow-lg rounded-full w-28 h-28 object-cover mr-4"
-              src="../assets/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"
-              alt="user pic"
-            />
-            <!-- user info -->
-            <div>
-              <h4 class="mb-1 text-lg font-medium text-violet-900">
-                zahra sarabi
-              </h4>
-              <h5 class="text-sm text-violet-400 opacity-60">
-                Front-end Developer
-              </h5>
-            </div>
-          </div>
-          <!-- profile icon -->
-          <div class="flex items-center justify-center m-3 divide-solid">
-            <!-- message icon -->
-            <i
-              title="message"
-              class="cursor-pointer hover:text-slate-900 text-2xl pr-4 border-violet-100 text-violet-900 fa-solid fa-message"
-            ></i>
-            <!-- alart icon -->
-            <i
-              title="alart"
-              class="cursor-pointer hover:text-slate-900 text-2xl border-l-2 border-violet-100 pl-4 pr-4 text-violet-900 fa-solid fa-bell"
-            ></i>
-            <!-- edit icon -->
-            <i
-              title="edit"
-              class="cursor-pointer hover:text-slate-900 text-2xl border-l-2 border-violet-100 pl-4 text-violet-900 fa-solid fa-pen"
-            ></i>
-          </div>
-        </div>
         <!-- profile welcome -->
-        <div class="relative shrink bg-white w-80 h-auto rounded-2xl m-5">
+        <div class="relative shrink bg-white w-80 h-auto rounded-2xl ml-5">
           <!-- profile welcome header -->
           <div
             class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-start"
@@ -83,7 +36,7 @@
             </h4>
             <!-- add report btn -->
             <button
-              onclick="window.location='add-reports.html';"
+              id="addReportsBtn"
               class="flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
             >
               <p class="font-semibold text-xl text-center it">Add reports</p>
@@ -171,5 +124,8 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script  type="module" src="../src/js/dashboard.js"></script>
   </body>
 </html>

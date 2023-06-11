@@ -25,7 +25,6 @@ async function addPerson() {
   oldpersonDiv.appendChild(personDiv); // دیو بالاتر از دیوی که ساختیم
   personInput.value = "";
 }
-
 function remove(e) {
   const item = e.target;
   const classList = [...item.classList];
@@ -143,3 +142,5 @@ function addPaymentInfo() {
   parentPaymentDiv.appendChild(paymentDiv);
   console.log(paymentDiv.outerHTML);
 }
+const edd = console.log("hi");
+export default { edd };

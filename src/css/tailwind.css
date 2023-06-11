@@ -23,6 +23,10 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  .has-error {
+    background-color: rgb(254 226 226);
+  }
 }
 
 @layer base {
