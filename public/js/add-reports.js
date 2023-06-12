@@ -1,3 +1,13 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 const personInput = document.querySelector("#personInput");
 const addPersonBtn = document.getElementById("addPersonBtn");
 const oldpersonDiv = document.getElementById("personDiv");
@@ -8,11 +18,11 @@ addPaymentbtn.addEventListener("click", addPaymentInfo);
 addPersonBtn.addEventListener("click", addPerson);
 oldpersonDiv.addEventListener("click", remove);
 deleteDiv.addEventListener("click", remove);
-
-async function addPerson() {
-  const personDiv = document.createElement("span");
-  personDiv.classList.add("preson-style");
-  const newPerson = `
+function addPerson() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const personDiv = document.createElement("span");
+        personDiv.classList.add("preson-style");
+        const newPerson = `
    <i
     class= "remove fa-user-minus hover:text-red-600 cursor-pointer fa-solid "
   ></i>
@@ -21,24 +31,24 @@ async function addPerson() {
   </h3>
 
   `;
-  personDiv.innerHTML = newPerson;
-  oldpersonDiv.appendChild(personDiv); // دیو بالاتر از دیوی که ساختیم
-  personInput.value = "";
+        personDiv.innerHTML = newPerson;
+        oldpersonDiv.appendChild(personDiv); // دیو بالاتر از دیوی که ساختیم
+        personInput.value = "";
+    });
 }
 function remove(e) {
-  const item = e.target;
-  const classList = [...item.classList];
-  const parentItem = item.parentElement;
-
-  if (classList[0] === "remove") {
-    parentItem.remove();
-  }
+    const item = e.target;
+    const classList = [...item.classList];
+    const parentItem = item.parentElement;
+    if (classList[0] === "remove") {
+        parentItem.remove();
+    }
 }
 function addPaymentInfo() {
-  const paymentDiv = document.createElement("div");
-  paymentDiv.classList.add("payment-style");
-  paymentDiv.classList.add("parentPaymentDiv");
-  const newPayment = `
+    const paymentDiv = document.createElement("div");
+    paymentDiv.classList.add("payment-style");
+    paymentDiv.classList.add("parentPaymentDiv");
+    const newPayment = `
   <div
                         
                         class="relative flex bg-gray-50 rounded-lg p-4 mb-4 items-center justify-between"
@@ -138,9 +148,7 @@ function addPaymentInfo() {
                         ></i>
                       </div>
  `;
-  paymentDiv.innerHTML = newPayment;
-  parentPaymentDiv.appendChild(paymentDiv);
-  console.log(paymentDiv.outerHTML);
+    paymentDiv.innerHTML = newPayment;
+    parentPaymentDiv.appendChild(paymentDiv);
+    console.log(paymentDiv.outerHTML);
 }
-const edd = console.log("hi");
-export default { edd };
