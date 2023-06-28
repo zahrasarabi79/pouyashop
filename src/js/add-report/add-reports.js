@@ -1,28 +1,17 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 const personInput = document.querySelector("#personInput");
 const addPersonBtn = document.getElementById("addPersonBtn");
 const oldpersonDiv = document.getElementById("personDiv");
 const deleteDiv = document.querySelector(".deleteDiv");
 const parentPaymentDiv = document.getElementById("parentPaymentDiv");
-const addPaymentbtn = document.querySelector(".addPaymentbtn");
-addPaymentbtn.addEventListener("click", addPaymentInfo);
-addPersonBtn.addEventListener("click", addPerson);
-oldpersonDiv.addEventListener("click", remove);
-deleteDiv.addEventListener("click", remove);
-function addPerson() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const personDiv = document.createElement("span");
-        personDiv.classList.add("preson-style");
-        const newPerson = `
+// const addPaymentbtn = document.querySelector(".addPaymentbtn");
+// addPersonBtn.addEventListener("click", addPerson);
+// oldpersonDiv.addEventListener("click", remove);
+// deleteDiv.addEventListener("click", remove);
+let personCount = 0;
+async function addPerson() {
+  const personDiv = document.createElement("span");
+  personDiv.classList.add("preson-style");
+  const newPerson = `
    <i
     class= "remove fa-user-minus hover:text-red-600 cursor-pointer fa-solid "
   ></i>
@@ -30,28 +19,35 @@ function addPerson() {
     ${personInput.value}
   </h3>
 
+  <input type='hidden' name='passengers[${personCount++}]' value='${
+    personInput.value
+  }'>
   `;
-        personDiv.innerHTML = newPerson;
-        oldpersonDiv.appendChild(personDiv); // دیو بالاتر از دیوی که ساختیم
-        personInput.value = "";
-    });
+  personDiv.innerHTML = newPerson;
+  oldpersonDiv.appendChild(personDiv);
+  // دیو بالاتر از دیوی که ساختیم
+  personInput.value = "";
 }
-function remove(e) {
-    const item = e.target;
-    const classList = [...item.classList];
-    const parentItem = item.parentElement;
-    if (classList[0] === "remove") {
-        parentItem.remove();
-    }
+function remove(event) {
+  const item = event.target;
+  const classList = [...item.classList];
+  const parentItem = item.parentElement;
+
+  if (classList[0] === "remove") {
+    parentItem.remove();
+  }
 }
+
+let reportCounter = 1;
+
 function addPaymentInfo() {
-    const paymentDiv = document.createElement("div");
-    paymentDiv.classList.add("payment-style");
-    paymentDiv.classList.add("parentPaymentDiv");
-    const newPayment = `
-  <div
+  const paymentDiv = document.createElement("div");
+  paymentDiv.classList.add("payment-style");
+  paymentDiv.classList.add("parentPaymentDiv");
+  const newPayment = `
+  <form
                         
-                        class="relative flex bg-gray-50 rounded-lg p-4 mb-4 items-center justify-between"
+                    class="ticketForm relative flex bg-gray-50 rounded-lg p-4 mb-4  justify-between"
                       >
                         <div class="flex flex-col items-stretch">
                           <!-- input ticket -->
@@ -68,6 +64,7 @@ function addPaymentInfo() {
                               <input
                                 class="text-lg text-center font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="number"
+                                name="report[${reportCounter}][number]"
                               />
                             </div>
                             <!-- info ticket -->
@@ -80,7 +77,7 @@ function addPaymentInfo() {
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                class=""
+                                name="report[${reportCounter}][costTitle]"
                               />
                             </div>
                             <!-- input presenter -->
@@ -93,7 +90,7 @@ function addPaymentInfo() {
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                class=""
+                                name="report[${reportCounter}][presenter]"
                               />
                             </div>
                           </div>
@@ -111,7 +108,7 @@ function addPaymentInfo() {
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                name="payment"
+                                name="report[${reportCounter}][bank]"
                               />
                             </div>
                             <!--  payment -->
@@ -124,7 +121,7 @@ function addPaymentInfo() {
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                name="payment"
+                                name="report[${reportCounter}][payments]"
                               />
                             </div>
                             <!-- input payment day -->
@@ -137,18 +134,19 @@ function addPaymentInfo() {
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                name="payment"
+                                name="report[${reportCounter}][datepayment]"
                               />
                             </div>
                           </div>
                         </div>
                         <!-- delete badge -->
                         <i
-                          class="remove absolute cursor-pointer top-0 -right-1 text-red-600 text-xl fa-solid fa-circle-xmark"
+                          class="remove absolute cursor-pointer top-0 -right-15 text-red-600 text-xl fa-solid fa-circle-xmark"
                         ></i>
-                      </div>
+                      </form>
  `;
-    paymentDiv.innerHTML = newPayment;
-    parentPaymentDiv.appendChild(paymentDiv);
-    console.log(paymentDiv.outerHTML);
+  reportCounter++;
+  paymentDiv.innerHTML = newPayment;
+  parentPaymentDiv.appendChild(paymentDiv);
+  // console.log(paymentDiv.outerHTML);
 }

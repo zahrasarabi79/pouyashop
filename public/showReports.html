@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fa" dir="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>mini pouya dashboard</title>
+    <script src="../src/js/helper.js"></script>
+  </head>
+  <body class="bg-violet-200 container mx-auto px-4">
+    <!-- dashboard -->
+    <div class="flex flex-row-reverse items-start justify-around m-5">
+      <!-- profile col -->
+      <div class="flex flex-col">
+        <!-- profile welcome -->
+        <div class="relative shrink bg-white w-80 h-auto rounded-2xl ml-5">
+          <!-- profile welcome header -->
+          <div
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-start"
+          >
+            <h3 class="font-semibold text-violet-200 text-lg">
+              Poyagaran Holding
+            </h3>
+          </div>
+          <!-- profile welcome body -->
+          <div class="flex flex-col items-center justify-around">
+            <!-- profile welcome titre -->
+            <h4 dir="rtl" class="text-center mt-8 mb-8">
+              به <strong> هیواد پرواز کیش</strong> خوش آمدید!
+            </h4>
+            <!-- add report btn -->
+            <button
+              onclick="backPage(event)"
+              class="flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
+            >
+              <p class="font-semibold text-xl text-center">List of reports</p>
+              <i class="text-xl ml-4 fa-solid fa-circle-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- dashboard body-->
+      <div class="w-[55rem] h-64 shrink container 2xl:w-[90rem]">
+        <!-- creat reports -->
+        <div
+          class="bg-white h-auto rounded-2xl flex-col justify-start items-center"
+        >
+          <!-- creat header -->
+          <div
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-between"
+          >
+            <h3 class="font-semibold text-violet-200 text-lg">show reports</h3>
+            <i class="p-4 text-violet-200 fa-solid fa-chevron-down"></i>
+          </div>
+          <!-- creat body -->
+          <div dir="rtl" class="flex flex-col">
+            <!-- inputs -->
+            <div
+              class="p-4 m-4 flex flex-col gap-4 border border-gray-50 rounded-lg"
+            >
+              <!-- header -->
+              <div>
+                <h2 dir="auto" class="p-4 text-center font-semibold text-lg">
+                  گزارش خرید و فروش هیواد پرواز کیش
+                </h2>
+              </div>
+              <!-- اطلاعات قرارداد -->
+              <div
+                class="flex flex-row justify-between items-center p-4 border border-gray-50 rounded-lg"
+              >
+                <div id="contract-type" class="flex flex-row gap-4">
+                  <p>نوع گزارش:</p>
+                  <span>خرید</span>
+                </div>
+                <div id="contract-number" class="flex flex-row gap-4">
+                  <p>شماره قرارداد:</p>
+                  <span>1324543545</span>
+                </div>
+
+                <div id="contract-date" class="flex flex-row gap-4">
+                  <p>تاریخ قرارداد:</p>
+                  <span>1324543545</span>
+                </div>
+              </div>
+              <!-- اسامی مسافران -->
+              <div
+                id="passengers"
+                class="flex flex-row gap-4 p-4 border border-gray-50 rounded-lg"
+              >
+                <p>مسافران:</p>
+                <span>زهراسرابی ، زهرا امیری، سیما گلستانی</span>
+              </div>
+              <!-- تیتر گزارش  -->
+              <div><p class="text-lg font-medium">گزارش های خرید/فروش</p></div>
+              <!-- گزارشات -->
+              <div
+                class="flex flex-col gap-2 border border-gray-100 rounded-lg p-4"
+              >
+                <div id="report-info" class="grid grid-cols-3 gap-4">
+                  <div id="presenter" class="flex flex-row gap-4">
+                    <p>مجری:</p>
+                    <span>هیواد پرواز کیش</span>
+                  </div>
+                  <div id="contract-type" class="flex flex-row gap-2">
+                    <p>نوع هزینه:</p>
+                    <span>خرید بلیط</span>
+                  </div>
+                  <div id="contract-type" class="flex flex-row gap-2">
+                    <p>تعداد:</p>
+                    <span>12</span>
+                  </div>
+                  <div id="contract-type" class="flex flex-row gap-2">
+                    <p>مبلغ پرداختی:</p>
+                    <span>1200000</span>
+                  </div>
+                  <div id="contract-type" class="flex flex-row gap-2">
+                    <p>تاریخ پرداخت:</p>
+                    <span>1402.03.02</span>
+                  </div>
+                  <div id="contract-type" class="flex flex-row gap-2">
+                    <p>بانک/شرکاء</p>
+                    <span>بانک رفاه</span>
+                  </div>
+                </div>
+              </div>
+              <!-- delete modal -->
+              <!-- Modal container -->
+              <div
+                id="deletedModal"
+                class="relative h-auto items-center justify-center hidden"
+              >
+                <!-- Modal background -->
+                <div class="fixed inset-0 opacity-50 bg-gray-800"></div>
+
+                <!-- Modal content -->
+                <div
+                  class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[50%] bg-white p-4 shadow-lg rounded-lg"
+                >
+                  <!-- Modal content here -->
+                  <h2 class="text-lg font-bold mb-2">حذف گزارش</h2>
+                  <p>گزارش شما حذف شد</p>
+                  <button
+                    onclick="closedeletedModals()"
+                    id="closedeletedModal"
+                    class="mt-4 px-4 py-2 bg-red-500 text-white rounded"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+
+              <!-- دکمه ها -->
+              <div class="grid grid-cols-3 gap-4">
+                <button
+                  class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
+                >
+                  ویرایش
+                </button>
+                <button
+                  id="opendeletedModal"
+                  onclick="deletedModals()"
+                  class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
+                >
+                  حذف
+                </button>
+                <button
+                  class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
+                >
+                  دانلود
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../src/js/show report/modals.js"></script>
+  <script src="../src/js/show report/fetchshowReports.js"></script>
+</html>

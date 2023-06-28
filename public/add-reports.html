@@ -13,6 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <title>mini pouya dashboard</title>
+    <script src="../src/js/helper.js"></script>
   </head>
   <body class="bg-violet-200 container mx-auto px-4">
     <!-- dashboard -->
@@ -37,7 +38,7 @@
             </h4>
             <!-- add report btn -->
             <button
-              onclick="window.location='dashboard.html';"
+              onclick="backPage(event)"
               class="flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
             >
               <p class="font-semibold text-xl text-center">List of reports</p>
@@ -68,7 +69,12 @@
               </h2>
             </div>
             <!-- inputs -->
-            <form class="m-8 flex flex-col" dir="rtl" action="">
+            <form
+              name="Myform"
+              class="m-8 flex flex-col"
+              dir="rtl"
+              onsubmit="formInput(event)"
+            >
               <!-- اطلاعات قرارداد -->
               <div class="mb-8 relative">
                 <h2 class="mr-8 absolute -top-4 font-semibold text-xl">
@@ -81,14 +87,14 @@
                   <div class="flex items-center justify-center">
                     <label
                       class="ml-4 text-lg font-semibold text-violet-900"
-                      for="num-Contract"
+                      for="numContract"
                       >شماره قرارداد:
                     </label>
 
                     <input
                       class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                       type="text"
-                      name="num-Contract"
+                      name="numContract"
                     />
                   </div>
                   <!-- تاریخ قرارداد -->
@@ -102,7 +108,7 @@
                     <input
                       class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                       type="text"
-                      name="num-Contract"
+                      name="dateContract"
                     />
                   </div>
                 </div>
@@ -119,18 +125,16 @@
                     <div class="flex items-center justify-start mb-4 container">
                       <label
                         class="ml-4 text-lg font-semibold text-violet-900"
-                        for="num-Contract"
+                        for="Passengers"
                         >نام مسافران:
                       </label>
-
                       <input
                         id="personInput"
                         class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                         type="text"
-                        name="num-Contract"
                       />
                       <button
-                        onclick="addPerson"
+                        onclick="addPerson()"
                         id="addPersonBtn"
                         type="button"
                         class="mr-4 p-2 rounded-lg h-10 w-10 flex items-center justify-around"
@@ -141,7 +145,11 @@
                       </button>
                     </div>
                     <!-- name of passengers -->
-                    <div id="personDiv" class="grid grid-cols-4 gap-4">
+                    <div
+                      onclick="remove(event)"
+                      id="personDiv"
+                      class="grid grid-cols-4 gap-4"
+                    >
                       <!-- passenger1 -->
                       <!-- <span
                         class="preson-style flex items-center p-4 rounded-lg"
@@ -175,6 +183,7 @@
                         dir="rtl"
                         class="focus:outline-none cursor-pointer bg-gray-300 rounded-lg p-4"
                         x-model="typeofcontract"
+                        name="typeReport"
                       >
                         <option class="p-4 text-lg font-medium text-violet-900">
                           خرید
@@ -185,7 +194,11 @@
                       </select>
                     </div>
                     <!--اینپوت های ساخته شده -->
-                    <div id="parentPaymentDiv" class="deleteDiv flex flex-col">
+                    <div
+                      onclick="remove(event)"
+                      id="parentPaymentDiv"
+                      class="deleteDiv flex flex-col"
+                    >
                       <div
                         class="relative flex bg-gray-50 rounded-lg p-4 mb-4 items-center justify-between"
                       >
@@ -204,6 +217,7 @@
                               <input
                                 class="text-lg text-center font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="number"
+                                name="report[0][number]"
                               />
                             </div>
                             <!-- info ticket -->
@@ -216,7 +230,7 @@
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                class=""
+                                name="report[0][costTitle]"
                               />
                             </div>
                             <!-- input presenter -->
@@ -229,7 +243,7 @@
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                class=""
+                                name="report[0][presenter]"
                               />
                             </div>
                           </div>
@@ -247,7 +261,7 @@
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                name="payment"
+                                name="report[0][bank]"
                               />
                             </div>
                             <!--  payment -->
@@ -260,7 +274,7 @@
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                name="payment"
+                                name="report[0][payments]"
                               />
                             </div>
                             <!-- input payment day -->
@@ -273,7 +287,7 @@
                               <input
                                 class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
-                                name="payment"
+                                name="report[0][datepayment]"
                               />
                             </div>
                           </div>
@@ -283,7 +297,7 @@
 
                     <!-- btn add -->
                     <button
-                      onclick="addPaymentInfo"
+                      onclick="addPaymentInfo()"
                       type="button"
                       class="addPaymentbtn hover:bg-violet-700 hover:text-white text-lg text-violet-900 font-semibold bg-violet-300 rounded-lg p-4 mb-8"
                     >
@@ -292,24 +306,25 @@
                   </div>
                 </div>
               </div>
-            </form>
 
-            <!-- submit btn -->
-            <button
-              class="text-center font-semibold text-2xl m-8 flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
-            >
-              ثبت گزارش
-            </button>
+              <!-- submit btn -->
+              <button
+                type="submit"
+                class="text-center font-semibold text-2xl m-8 flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
+              >
+                ثبت گزارش
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </body>
-  <script type="module" src="../public/js/add-reports.js"></script>
-
   <script
     defer
-    
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
+  <script src="../src/js/add-report/addinfo.js"></script>
+  <script src="../src/js/add-report/add-reports.js"></script>
+  <script src="../src/js/add-report/fetchAddReport.js"></script>
 </html>

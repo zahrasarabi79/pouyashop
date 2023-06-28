@@ -13,6 +13,8 @@
       referrerpolicy="no-referrer"
     />
     <title>mini pouya</title>
+    <script src="../src/js/helper.js"></script>
+
   </head>
   <body
     class="h-screen bg-no-repeat bg-fixed bg-cover bg-center static"
@@ -40,8 +42,9 @@
         <!-- inputs -->
         <form
           id="form"
-          class="gap-2 flex flex-col items-center justify-around "
+          class="gap-2 flex flex-col items-center justify-around"
           action=""
+          onsubmit="giveData(event)"
         >
           <!-- username input -->
           <div class="pb-4 relative">
@@ -53,11 +56,13 @@
               class="pl-9 placeholder:text-sm w-80 focus:outline-indigo-900 bg-gray-100 p-2 rounded-lg border-2 border-gray-500 mb-2"
               type="text"
               id="username"
+              name="username"
               placeholder="Enter your username"
-              
             />
-            <p id="usernameError" class="userError text-xs text-red-600 rounded-md w-full px-2 h-6 flex items-center"></p>
-
+            <p
+              id="usernameError"
+              class="userError text-xs text-red-600 rounded-md w-full px-2 h-6 flex items-center"
+            ></p>
           </div>
           <!-- password input -->
 
@@ -76,16 +81,18 @@
               class="pl-9 placeholder:text-sm w-80 focus:outline-indigo-900 bg-gray-100 p-2 rounded-lg border-2 border-gray-500 mb-2"
               type="password"
               id="password"
+              name="password"
               placeholder="Enter your password"
-              
             />
-            <p id="passwordError" class="userError  text-xs text-red-600  rounded-md w-full px-2 h-6 flex items-center"></p>
+            <p
+              id="passwordError"
+              class="userError text-xs text-red-600 rounded-md w-full px-2 h-6 flex items-center"
+            ></p>
           </div>
 
           <!-- button submit -->
           <div class="py-3">
             <button
-              id="getDataBtn"
               class="text-xl text-center font-normal rounded-lg text-white bg-slate-900 pr-5 pl-5 pt-2 pb-2"
               type="submit"
             >
@@ -101,6 +108,7 @@
         </form>
       </div>
     </div>
-    <script type="module" src="../public/js/login.js"></script>
+    <script src="../src/js/login/login.js"></script>
+    <script src="../src/js/login/loginFetch.js"></script>
   </body>
 </html>

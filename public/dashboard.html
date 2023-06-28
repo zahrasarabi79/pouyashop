@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="../src/js/helper.js"></script>
+
     <link rel="stylesheet" href="./build/tailwind.css" />
     <link
       rel="stylesheet"
@@ -36,6 +39,7 @@
             </h4>
             <!-- add report btn -->
             <button
+              onclick="addReport(event)"
               id="addReportsBtn"
               class="flex items-center justify-center bg-purple-400 w-48 h-16 mb-4 rounded-lg"
             >
@@ -108,12 +112,13 @@
               <div
                 class="flex flex-col items-center justify-center md:flex-row"
               >
-                <button
+                <button onclick="ViewReport()"
                   class="ml-4 text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
                 >
                   مشاهده
                 </button>
                 <button
+                onclick="downloadReport()"
                   class="text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
                 >
                   دانلود
@@ -124,8 +129,6 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script  type="module" src="../public/js/dashboard.js"></script>
+    <script src="../src/js/dashboard/dashboard.js"></script>
   </body>
 </html>
