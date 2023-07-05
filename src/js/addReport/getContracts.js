@@ -3,7 +3,7 @@ async function formInput(e) {
   let data = e.target.serialize();
   try {
     const contractId = await getContractId(data);
-    localStorage.setItem("contractId", JSON.stringify(contractId));
+    localStorage.setItem("id", contractId.id);
     window.location.href = "./showReports.html";
   } catch (error) {
     console.log("false");

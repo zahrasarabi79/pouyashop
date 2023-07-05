@@ -65,22 +65,21 @@
             <i class="pr-4 text-violet-200 fa-solid fa-chevron-down"></i>
           </div>
           <!-- creat body -->
-          <div class="flex flex-col">
+          <div dir="rtl" id="parentCardDiv" class="flex flex-col">
             <!-- creat report cart1 -->
-            <div
-              dir="rtl"
+            <!-- <div
               class="bg-gray-200 p-4 m-4 h-20 rounded-2xl flex justify-start items-center 2xl:justify-between"
-            >
-              <!-- info  -->
-              <div class="flex items-center justify-between">
+            > -->
+            <!-- info  -->
+            <!-- <div class="flex items-center justify-between">
                 <i
                   class="text-xl text-violet-900 fa-solid fa-plane-departure"
                 ></i>
                 <p class="text-lg p-4 ml-4">شماره قرارداد : 1245789636</p>
                 <p class="text-lg p-4 ml-4">تاریخ قرارداد : 1401/02/03</p>
-              </div>
-              <!-- button -->
-              <div
+              </div> -->
+            <!-- button -->
+            <!-- <div
                 class="flex flex-col items-center justify-center md:flex-row"
               >
                 <button
@@ -93,42 +92,13 @@
                 >
                   دانلود
                 </button>
-              </div>
-            </div>
-            <!-- creat report cart2 -->
-            <div
-              dir="rtl"
-              class="bg-gray-200 p-4 m-4 h-20 rounded-2xl flex justify-start items-center 2xl:justify-between"
-            >
-              <!-- info  -->
-              <div class="flex items-center justify-between">
-                <i
-                  class="text-xl text-violet-900 fa-solid fa-plane-departure"
-                ></i>
-                <p class="text-lg p-4 ml-4">شماره قرارداد : 1245789636</p>
-                <p class="text-lg p-4 ml-4">تاریخ قرارداد : 1401/02/03</p>
-              </div>
-              <!-- button -->
-              <div
-                class="flex flex-col items-center justify-center md:flex-row"
-              >
-                <button onclick="ViewReport()"
-                  class="ml-4 text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
-                >
-                  مشاهده
-                </button>
-                <button
-                onclick="downloadReport()"
-                  class="text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
-                >
-                  دانلود
-                </button>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>
     </div>
-    <script src="../src/js/dashboard/dashboard.js"></script>
+    <script src="../src/js/dashboard/dynamicCard.js"></script>
+    <script src="../src/js/dashboard/getContractInfo.js"></script>
   </body>
 </html>

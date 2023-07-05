@@ -98,3 +98,15 @@ let getTokenStorage;
 const getstoragetoken = async (Token) => {
   localStorage.setItem("myToken", Token);
 };
+// let week;
+// async function getContract(contractId) {
+//   const contractRes = await callPostApi("showReports", contractId, "json");
+//   try {
+//     if (contractRes.ok) {
+//       const contractObj = await contractRes.json();
+//       return contractObj.Contracts[0];
+//     }
+//   } catch (error) {
+//     console.log("didn't get response");
+//   }
+// }

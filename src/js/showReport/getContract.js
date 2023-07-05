@@ -1,35 +1,35 @@
-// const receivedContract = JSON.parse(localStorage.getItem("contractinfo"));
-// async function showContractInfo(receivedContract) {
-//   if (receivedContract) {
-//     const contractType = document.getElementById(contractType);
-//     contractType.textContent = `${receivedContract.id}`;
-//     console.log(receivedContract);
-//   } else {
-//     console.log("Contract not saved in local storage.");
+// const contractId = JSON.parse(localStorage.getItem("contractId"));
+// async function getContract(contractId) {
+//   const contractRes = await callPostApi("showReports", contractId, "json");
+//   try {
+//     if (contractRes.ok) {
+//       const contractObj = await contractRes.json();
+//       const contractInfo = contractObj.Contracts[0];
+//       return contractInfo;
+//     }
+//   } catch (error) {
+//     console.log("didn't get response");
 //   }
 // }
-// async function showInfoContract(contract) {
-//   const contract = await response.json();
-//   console.log(contract);
-// }
-const contractIdd = JSON.parse(localStorage.getItem("contractId"));
-console.log(contractIdd)
-// const contractId = { id: "2" };
+// const contractId = JSON.parse(localStorage.getItem("contractId"));
 
+var receivedId = localStorage.getItem("id");
+const contractId = {
+  id: receivedId,
+};
 async function getContract(contractId) {
   const contractRes = await callPostApi("showReports", contractId, "json");
   try {
     if (contractRes.ok) {
       const contractObj = await contractRes.json();
-      const contractInfo = contractObj.Contracts[0];
-      return contractInfo;
+      return contractObj.Contracts[0];
     }
   } catch (error) {
     console.log("didn't get response");
   }
 }
-async function showContractInfo(contractId) {
-  var receivedContract = await getContract(contractId);
+async function showContractInfo(id) {
+  let receivedContract = await getContract(id);
   if (receivedContract) {
     await contrcactInfo(receivedContract);
     await passengersInfo(receivedContract);
@@ -59,7 +59,6 @@ async function passengersInfo(receivedContract) {
 
 async function reportsInfo(receivedContract) {
   const allReports = receivedContract.report;
-  const report = allReports.forEach((obj) => creatReportcard(obj));
+  allReports.forEach((obj) => creatReportcard(obj));
 }
-
-showContractInfo(contractIdd);
+showContractInfo(contractId);
