@@ -12,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <title>mini pouya dashboard</title>
     <script src="../src/js/helper.js"></script>
   </head>
@@ -64,6 +65,7 @@
           <div dir="rtl" class="flex flex-col">
             <!-- inputs -->
             <div
+              id="reportContent"
               class="p-4 m-4 flex flex-col gap-4 border border-gray-50 rounded-lg"
             >
               <!-- header -->
@@ -76,42 +78,42 @@
               <div
                 class="flex flex-row justify-between items-center p-4 border border-gray-50 rounded-lg"
               >
-                <div id="contract-type" class="flex flex-row gap-4">
+                <div class="flex flex-row gap-4">
                   <p>نوع گزارش:</p>
-                  <span>خرید</span>
+                  <span id="contractType"></span>
                 </div>
-                <div id="contract-number" class="flex flex-row gap-4">
+                <div class="flex flex-row gap-4">
                   <p>شماره قرارداد:</p>
-                  <span>1324543545</span>
+                  <span id="contractNumber"></span>
                 </div>
 
                 <div id="contract-date" class="flex flex-row gap-4">
                   <p>تاریخ قرارداد:</p>
-                  <span>1324543545</span>
+                  <span id="contractDate"></span>
                 </div>
               </div>
               <!-- اسامی مسافران -->
               <div
-                id="passengers"
                 class="flex flex-row gap-4 p-4 border border-gray-50 rounded-lg"
               >
                 <p>مسافران:</p>
-                <span>زهراسرابی ، زهرا امیری، سیما گلستانی</span>
+                <span id="passengers"></span>
               </div>
               <!-- تیتر گزارش  -->
               <div><p class="text-lg font-medium">گزارش های خرید/فروش</p></div>
               <!-- گزارشات -->
               <div
+                id="parentReportDiv"
                 class="flex flex-col gap-2 border border-gray-100 rounded-lg p-4"
               >
-                <div id="report-info" class="grid grid-cols-3 gap-4">
-                  <div id="presenter" class="flex flex-row gap-4">
+                <!-- <div id="report-info" class="grid grid-cols-3 gap-4">
+                  <div  class="flex flex-row gap-4">
                     <p>مجری:</p>
-                    <span>هیواد پرواز کیش</span>
+                    <span id="presenter">هیواد پرواز کیش</span>
                   </div>
                   <div id="contract-type" class="flex flex-row gap-2">
                     <p>نوع هزینه:</p>
-                    <span>خرید بلیط</span>
+                    <span  id="contractType">خرید بلیط</span>
                   </div>
                   <div id="contract-type" class="flex flex-row gap-2">
                     <p>تعداد:</p>
@@ -129,60 +131,64 @@
                     <p>بانک/شرکاء</p>
                     <span>بانک رفاه</span>
                   </div>
-                </div>
+                </div> -->
               </div>
-              <!-- delete modal -->
-              <!-- Modal container -->
+            </div>
+            <!-- دکمه ها -->
+            <!-- delete modal -->
+            <!-- Modal container -->
+            <div
+              id="deletedModal"
+              class="relative h-auto items-center justify-center hidden"
+            >
+              <!-- Modal background -->
+              <div class="fixed inset-0 opacity-50 bg-gray-800"></div>
+
+              <!-- Modal content -->
               <div
-                id="deletedModal"
-                class="relative h-auto items-center justify-center hidden"
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[50%] bg-white p-4 shadow-lg rounded-lg"
               >
-                <!-- Modal background -->
-                <div class="fixed inset-0 opacity-50 bg-gray-800"></div>
-
-                <!-- Modal content -->
-                <div
-                  class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[50%] bg-white p-4 shadow-lg rounded-lg"
-                >
-                  <!-- Modal content here -->
-                  <h2 class="text-lg font-bold mb-2">حذف گزارش</h2>
-                  <p>گزارش شما حذف شد</p>
-                  <button
-                    onclick="closedeletedModals()"
-                    id="closedeletedModal"
-                    class="mt-4 px-4 py-2 bg-red-500 text-white rounded"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-
-              <!-- دکمه ها -->
-              <div class="grid grid-cols-3 gap-4">
+                <!-- Modal content here -->
+                <h2 class="text-lg font-bold mb-2">حذف گزارش</h2>
+                <p>گزارش شما حذف شد</p>
                 <button
-                  class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
+                  onclick="closedeletedModals()"
+                  id="closedeletedModal"
+                  class="mt-4 px-4 py-2 bg-red-500 text-white rounded"
                 >
-                  ویرایش
-                </button>
-                <button
-                  id="opendeletedModal"
-                  onclick="deletedModals()"
-                  class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
-                >
-                  حذف
-                </button>
-                <button
-                  class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
-                >
-                  دانلود
+                  Close
                 </button>
               </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 m-4">
+              <button
+                class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
+              >
+                ویرایش
+              </button>
+              <button
+                id="opendeletedModal"
+                onclick="deletedModals()"
+                class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
+              >
+                حذف
+              </button>
+              <button
+                onclick="downloadReport()"
+                id="downloadReportBtn"
+                class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
+              >
+                دانلود
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </body>
-  <script src="../src/js/show report/modals.js"></script>
-  <script src="../src/js/show report/fetchshowReports.js"></script>
+  <script src="../src/js/showReport/modals.js"></script>
+  <script src="../src/js/showReport/backPage.js"></script>
+  <script src="../src/js/showReport/dynamicReport.js"></script>
+  <script src="../src/js/showReport/getContract.js"></script>
 </html>

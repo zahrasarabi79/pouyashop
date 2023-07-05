@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   .preson-style {
     display: flex;
@@ -11,8 +12,6 @@
     border-radius: 0.5rem;
     background-color: #818cf8;
   }
-}
-@layer base {
   .payment-style {
     position: relative;
     display: flex;
@@ -27,7 +26,27 @@
   .has-error {
     background-color: rgb(254 226 226);
   }
+  .report-style {
+    @apply grid 
+  }
 }
+
+/* @layer base {
+  .payment-style {
+    position: relative;
+    display: flex;
+    background-color: gray;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .has-error {
+    background-color: rgb(254 226 226);
+  }
+} */
 
 @layer base {
   input[type="search"]::-webkit-search-decoration,

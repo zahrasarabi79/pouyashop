@@ -3,10 +3,6 @@ const addPersonBtn = document.getElementById("addPersonBtn");
 const oldpersonDiv = document.getElementById("personDiv");
 const deleteDiv = document.querySelector(".deleteDiv");
 const parentPaymentDiv = document.getElementById("parentPaymentDiv");
-// const addPaymentbtn = document.querySelector(".addPaymentbtn");
-// addPersonBtn.addEventListener("click", addPerson);
-// oldpersonDiv.addEventListener("click", remove);
-// deleteDiv.addEventListener("click", remove);
 let personCount = 0;
 async function addPerson() {
   const personDiv = document.createElement("span");

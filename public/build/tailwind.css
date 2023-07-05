@@ -1458,6 +1458,23 @@ input[type="number"]::-webkit-inner-spin-button,
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+/* @layer base {
+  .payment-style {
+    position: relative;
+    display: flex;
+    background-color: gray;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .has-error {
+    background-color: rgb(254 226 226);
+  }
+} */
+
 .placeholder\:text-sm::-moz-placeholder {
   font-size: 0.875rem;
   line-height: 1.25rem;

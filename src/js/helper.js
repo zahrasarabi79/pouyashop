@@ -52,9 +52,9 @@ function callGetApi(endpoint, data, contentType) {
 }
 
 async function backToList(endpoint, data, contentType) {
-  console.log("gfdg")
+  console.log("gfdg");
   try {
-      const response = await callPostApi(endpoint,data,contentType);
+    const response = await callPostApi(endpoint, data, contentType);
     if (response.ok) {
       window.location.href = "./dashboard.html";
     } else {
@@ -74,7 +74,15 @@ async function backToList(endpoint, data, contentType) {
   )
     window.location.href = "http://localhost:5500/public/dashboard.html";
 })();
-
+// async function showContractInfo(receivedContract) {
+//   if (receivedContract) {
+//     const contractType = document.getElementById(contractType);
+//     contractType.textContent = `${receivedContract.id}`;
+//     console.log(receivedContract);
+//   } else {
+//     console.log("Contract not saved in local storage.");
+//   }
+// }
 // get response
 async function getResponse(users) {
   try {
@@ -90,4 +98,3 @@ let getTokenStorage;
 const getstoragetoken = async (Token) => {
   localStorage.setItem("myToken", Token);
 };
-

@@ -1,10 +1,12 @@
 async function addReport(event) {
-  await fetchaddReport();
+  window.location.href = "./add-reports.html";
+
+  // await fetchaddReport();
 }
 
 async function fetchaddReport() {
   try {
-    const response = await callPostApi("dashboard", "", "json");
+    const response = await callPostApi("add", "", "json");
     if (response.ok) {
       window.location.href = "./add-reports.html";
     } else {
@@ -16,7 +18,7 @@ async function fetchaddReport() {
 }
 
 async function ViewReport() {
-  await fetchViewReport()
+  await fetchViewReport();
 }
 async function fetchViewReport() {
   try {
