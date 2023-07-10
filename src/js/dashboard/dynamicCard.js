@@ -30,11 +30,7 @@ function creatReportcard(obj) {
     >
       مشاهده
     </button>
-    <button
-      class="text-lg rounded-lg font-semibold bg-purple-400 w-28 h-auto p-2"
-    >
-      دانلود
-    </button>
+    
   </div>
                 `;
   cardDiv.innerHTML = newcard;

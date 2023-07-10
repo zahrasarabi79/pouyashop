@@ -3,6 +3,7 @@ const addPersonBtn = document.getElementById("addPersonBtn");
 const oldpersonDiv = document.getElementById("personDiv");
 const deleteDiv = document.querySelector(".deleteDiv");
 const parentPaymentDiv = document.getElementById("parentPaymentDiv");
+// iranDate();
 let personCount = 0;
 async function addPerson() {
   const personDiv = document.createElement("span");
@@ -128,9 +129,10 @@ function addPaymentInfo() {
                                 >تاریخ پرداخت:</label
                               >
                               <input
-                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
+                                class="PersianDate text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                                 type="text"
                                 name="report[${reportCounter}][datepayment]"
+                                autocomplete="off"
                               />
                             </div>
                           </div>
@@ -144,5 +146,12 @@ function addPaymentInfo() {
   reportCounter++;
   paymentDiv.innerHTML = newPayment;
   parentPaymentDiv.appendChild(paymentDiv);
-  // console.log(paymentDiv.outerHTML);
+  iranDate();
 }
+function iranDate() {
+  const inputs = document.getElementsByClassName("PersianDate");
+  $(inputs).map((index, item) => {
+    $(item).persianDatepicker({ initialValue: false, format: "YYYY/MM/DD" });
+  });
+}
+iranDate();

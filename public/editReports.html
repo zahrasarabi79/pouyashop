@@ -16,12 +16,8 @@
       rel="stylesheet"
       href="../src/js/editPage/unpkg.com_persian-datepicker@1.2.0_dist_css_persian-datepicker.min.css"
     />
+
     <title>mini pouya dashboard</title>
-    <script
-      src="https://code.jquery.com/jquery-3.7.0.min.js"
-      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-      crossorigin="anonymous"
-    ></script>
     <script src="../src/js/helper.js"></script>
   </head>
   <body class="bg-violet-200 container mx-auto px-4">
@@ -64,9 +60,9 @@
         >
           <!-- creat header -->
           <div
-            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-center"
+            class="text-2xl font-semibold pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-center"
           >
-            <h3 class="font-semibold text-violet-200 text-lg">Add reports</h3>
+            <h3 class="font-semibold text-violet-200 text-lg">Edite reports</h3>
           </div>
           <!-- creat body -->
           <div class="flex flex-col items-center">
@@ -117,7 +113,6 @@
                       class="PersianDate text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
                       type="text"
                       name="dateContract"
-                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -143,7 +138,7 @@
                         type="text"
                       />
                       <button
-                        onclick="addPerson()"
+                        onclick="addPerson(passengersObj)"
                         id="addPersonBtn"
                         type="button"
                         class="mr-4 p-2 rounded-lg h-10 w-10 flex items-center justify-around"
@@ -156,7 +151,7 @@
                     <!-- name of passengers -->
                     <div
                       onclick="remove(event)"
-                      id="personDiv"
+                      id="parentpersonDiv"
                       class="grid grid-cols-4 gap-4"
                     >
                       <!-- passenger1 -->
@@ -207,107 +202,11 @@
                       onclick="remove(event)"
                       id="parentPaymentDiv"
                       class="deleteDiv flex flex-col"
-                    >
-                      <div
-                        class="relative flex bg-gray-50 rounded-lg p-4 mb-4 items-center justify-between"
-                      >
-                        <div class="flex flex-col items-stretch">
-                          <!-- input ticket -->
-                          <div
-                            class="flex flex-col justify-start items-start gap-4 mb-8 2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center"
-                          >
-                            <!-- input number of tickets -->
-                            <div class="flex items-center justify-center">
-                              <label
-                                class="ml-4 text-lg text-right font-semibold text-violet-900"
-                                for="Ticket"
-                                >تعداد :</label
-                              >
-                              <input
-                                class="text-lg text-center font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
-                                type="number"
-                                name="report[0][number]"
-                              />
-                            </div>
-                            <!-- info ticket -->
-                            <div class="flex items-center justify-center">
-                              <label
-                                class="text-center ml-4 text-lg font-semibold text-violet-900"
-                                for="Ticket"
-                                >عنوان هزینه:</label
-                              >
-                              <input
-                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
-                                type="text"
-                                name="report[0][costTitle]"
-                              />
-                            </div>
-                            <!-- input presenter -->
-                            <div class="flex items-center justify-center">
-                              <label
-                                class="ml-4 text-lg font-semibold text-violet-900"
-                                for="Ticket"
-                                >مجری:</label
-                              >
-                              <input
-                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
-                                type="text"
-                                name="report[0][presenter]"
-                              />
-                            </div>
-                          </div>
-                          <!-- input payment -->
-                          <div
-                            class="flex flex-col justify-start items-start gap-4 mb-8 2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center"
-                          >
-                            <!-- input payment method -->
-                            <div class="flex items-center justify-center">
-                              <label
-                                class="ml-4 text-lg font-semibold text-violet-900"
-                                for="payment"
-                                >بانک/شرکاء:</label
-                              >
-                              <input
-                                class="text-lg font-semibold rounded-lg h-10 w-20 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
-                                type="text"
-                                name="report[0][bank]"
-                              />
-                            </div>
-                            <!--  payment -->
-                            <div class="flex items-center justify-center">
-                              <label
-                                class="ml-4 text-lg font-semibold text-violet-900"
-                                for="payment"
-                                >مبلغ پرداختی:</label
-                              >
-                              <input
-                                class="text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
-                                type="text"
-                                name="report[0][payments]"
-                              />
-                            </div>
-                            <!-- input payment day -->
-                            <div class="flex items-center justify-center">
-                              <label
-                                class="ml-4 text-lg font-semibold text-violet-900"
-                                for="payment"
-                                >تاریخ پرداخت:</label
-                              >
-                              <input
-                                class="PersianDate text-lg font-semibold rounded-lg h-10 p-4 focus:outline-violet-900 bg-gray-100 border border-gray-200"
-                                type="text"
-                                name="report[0][datepayment]"
-                                autocomplete="off"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    ></div>
 
                     <!-- btn add -->
                     <button
-                      onclick="addPaymentInfo()"
+                      onclick="addPaymentInfo({})"
                       type="button"
                       class="addPaymentbtn hover:bg-violet-700 hover:text-white text-lg text-violet-900 font-semibold bg-violet-300 rounded-lg p-4 mb-8"
                     >
@@ -331,14 +230,14 @@
       </div>
     </div>
   </body>
+
   <script
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="../src/js/editPage/unpkg.com_persian-date@1.1.0_dist_persian-date.min.js"></script>
   <script src="../src/js/editPage/unpkg.com_persian-datepicker@1.2.0_dist_js_persian-datepicker.min.js"></script>
-  <script src="../src/js/addReport/getContracts.js"></script>
-  <script src="../src/js/addReport/dynamicForm.js"></script>
-  <script src="../src/js/addReport/backPage.js"></script>
+  <script src="../src/js/editPage/editReport.js"></script>
+  <script src="../src/js/editPage/updateReport.js"></script>
 </html>

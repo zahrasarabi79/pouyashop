@@ -56,10 +56,9 @@
         >
           <!-- creat header -->
           <div
-            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-between"
+            class="pl-4 bg-violet-800 rounded-xl h-14 flex items-center justify-center"
           >
             <h3 class="font-semibold text-violet-200 text-lg">show reports</h3>
-            <i class="p-4 text-violet-200 fa-solid fa-chevron-down"></i>
           </div>
           <!-- creat body -->
           <div dir="rtl" class="flex flex-col">
@@ -150,7 +149,7 @@
               >
                 <!-- Modal content here -->
                 <h2 class="text-lg font-bold mb-2">حذف گزارش</h2>
-                <p>  گزارش حذف شود؟</p>
+                <p>گزارش حذف شود؟</p>
                 <button
                   onclick="closedeletedModals()"
                   id="closedeletedModal"
@@ -163,13 +162,14 @@
                   id="closedeletedModal"
                   class="mt-4 px-4 py-2 bg-red-500 text-white rounded"
                 >
-                  بله 
+                  بله
                 </button>
               </div>
             </div>
 
             <div class="grid grid-cols-3 gap-4 m-4">
               <button
+                onclick="editPage()"
                 class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
               >
                 ویرایش
@@ -181,13 +181,13 @@
               >
                 حذف
               </button>
-              <button
+              <!-- <button
                 onclick="downloadReport()"
                 id="downloadReportBtn"
                 class="bg-purple-400 rounded-lg text-center p-2 my-4 text-violet-900 text-xl"
               >
                 دانلود
-              </button>
+              </button> -->
             </div>
           </div>
         </div>

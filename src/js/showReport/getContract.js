@@ -1,19 +1,4 @@
-// const contractId = JSON.parse(localStorage.getItem("contractId"));
-// async function getContract(contractId) {
-//   const contractRes = await callPostApi("showReports", contractId, "json");
-//   try {
-//     if (contractRes.ok) {
-//       const contractObj = await contractRes.json();
-//       const contractInfo = contractObj.Contracts[0];
-//       return contractInfo;
-//     }
-//   } catch (error) {
-//     console.log("didn't get response");
-//   }
-// }
-// const contractId = JSON.parse(localStorage.getItem("contractId"));
-
-var receivedId = localStorage.getItem("id");
+let receivedId = localStorage.getItem("id");
 const contractId = {
   id: receivedId,
 };
