@@ -1,17 +1,8 @@
 function creatReportcard(obj) {
-  const parentCardDiv = document.getElementById("parentCardDiv");
-  const cardDiv = document.createElement("div");
-  cardDiv.classList.add("bg-gray-200");
-  cardDiv.classList.add("p-4");
-  cardDiv.classList.add("m-4");
-  cardDiv.classList.add("h-20");
-  cardDiv.classList.add("rounded-2xl");
-  cardDiv.classList.add("rounded-lg");
-  cardDiv.classList.add("flex");
-  cardDiv.classList.add("justify-start");
-  cardDiv.classList.add("items-center");
-  cardDiv.classList.add("2xl:justify-between");
-  const newcard = `
+  const cardDiv = $(
+    "<div class='bg-gray-200 p-4 m-4 h-20 rounded-lg flex justify-start items-center 2xl:justify-between' ></div>"
+  );
+  const newcard = $(`
   <!-- info  -->
   <div class="flex items-center justify-between">
     <i
@@ -32,8 +23,7 @@ function creatReportcard(obj) {
     </button>
     
   </div>
-                `;
-  cardDiv.innerHTML = newcard;
-  parentCardDiv.appendChild(cardDiv);
-  //   console.log(reportDiv.outerHTML);
+                `);
+  cardDiv.html(newcard);
+  $("#parentCardDiv").append(cardDiv);
 }

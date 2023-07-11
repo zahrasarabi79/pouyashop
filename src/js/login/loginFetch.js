@@ -1,11 +1,7 @@
-const usernameError = document.querySelector("#usernameError");
-const passwordError = document.querySelector("#passwordError");
-const userError = document.querySelector(".userError");
-
 // authentication
 async function checkResponse(response, users) {
-  userError.textContent = "";
-  userError.classList.remove("has-error");
+  $(".userError").text("");
+  $(".userError").removeClass("has-error");
   if (response.status === 400) {
     return await checkEmptyInput(users);
   }
@@ -22,9 +18,6 @@ async function getToken(response) {
   let token = data.token;
   await getstoragetoken(token);
   getTokenStorage = localStorage.getItem("myToken");
-  // console.log(getTokenStorage);
-  console.log(localStorage.myToken);
-
   window.location.href = "./dashboard.html";
 }
 
@@ -32,25 +25,26 @@ async function getToken(response) {
 async function checkEmptyInput(users) {
   const { username, password } = users;
   if (!username && !password) {
-    usernameError.textContent = "Please,Enter a username.";
-    passwordError.textContent = "Please,Enter a password.";
-    passwordError.classList.add("has-error");
-    usernameError.classList.add("has-error");
+    $("#passwordError, #usernameError").addClass("bg-red-100");
+    $("#usernameError").text("Please,Enter a username.");
+    $("#passwordError").text("Please,Enter a password.");
     return;
   }
   if (!username) {
-    usernameError.textContent = "Please,Enter a username.";
-    usernameError.classList.add("has-error");
+    $("#usernameError").addClass("bg-red-100");
+    $("#passwordError").removeClass("bg-red-100");
+    $("#usernameError").text("Please,Enter a username.");
     return;
   }
   if (!password) {
-    passwordError.textContent = "Please,Enter a password.";
-    passwordError.classList.add("has-error");
+    $("#passwordError").addClass("bg-red-100");
+    $("#usernameError").removeClass("bg-red-100");
+    $("#passwordError").text("Please,Enter a password.");
     return;
   }
 }
 async function checkInput() {
-  usernameError.textContent = "Please,Enter correct username.";
-  passwordError.textContent = "Please,Enter correct password.";
-  userError.classList.add("has-error");
+  $(".userError").addClass("bg-red-100");
+  $("#usernameError").text("Please,Enter correct username.");
+  $("#passwordError").text("Please,Enter correct password.");
 }

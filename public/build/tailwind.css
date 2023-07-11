@@ -562,14 +562,6 @@ video {
   display: none;
 }
 
-.preson-style {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: #818cf8;
-}
-
 input[type="search"]::-webkit-search-decoration,
   input[type="search"]::-webkit-search-cancel-button,
   input[type="search"]::-webkit-search-results-button,
@@ -1238,6 +1230,11 @@ input[type="number"]::-webkit-inner-spin-button,
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 
 .bg-cover {

@@ -1,15 +1,8 @@
 function creatReportcard(obj) {
-  const parentReportDiv = document.getElementById("parentReportDiv");
-  const reportDiv = document.createElement("div");
-  reportDiv.classList.add("grid");
-  reportDiv.classList.add("grid-cols-3");
-  reportDiv.classList.add("gap-4");
-  reportDiv.classList.add("border");
-  reportDiv.classList.add("border-gray-100");
-  reportDiv.classList.add("rounded-lg");
-  reportDiv.classList.add("p-4");
-
-  const newReport = `
+  const reportDiv = $(
+    "<div class='grid grid-cols-3 gap-4 border border-gray-100 rounded-lg p-4'></div>"
+  );
+  const newReport = $(`
         <div  class="flex flex-row gap-4">
       <p>مجری:</p>
       <span id="presenter">${obj.presenter}</span>
@@ -35,8 +28,7 @@ function creatReportcard(obj) {
       <span>${obj.bank}</span>
     </div>
 
-    `;
-  reportDiv.innerHTML = newReport;
-  parentReportDiv.appendChild(reportDiv);
-//   console.log(reportDiv.outerHTML);
+    `);
+  reportDiv.html(newReport);
+  $("#parentReportDiv").append(reportDiv);
 }

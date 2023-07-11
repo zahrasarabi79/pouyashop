@@ -13,6 +13,7 @@ async function getContract(contractId) {
     console.log("didn't get response");
   }
 }
+
 async function showContractInfo(id) {
   let receivedContract = await getContract(id);
   if (receivedContract) {
@@ -25,21 +26,17 @@ async function showContractInfo(id) {
 }
 
 async function contrcactInfo(receivedContract) {
-  const contractType = document.getElementById("contractType");
-  contractType.textContent = `${receivedContract.typeReport}`;
-  const contractNumber = document.getElementById("contractNumber");
-  contractNumber.textContent = `${receivedContract.numContract}`;
-  const contractDate = document.getElementById("contractDate");
-  contractDate.textContent = `${receivedContract.dateContract}`;
+  $("#contractType").text(`${receivedContract.typeReport}`);
+  $("#contractNumber").text(`${receivedContract.numContract}`);
+  $("#contractDate").text(`${receivedContract.dateContract}`);
 }
 
 async function passengersInfo(receivedContract) {
   const allPassengers = receivedContract.passengers;
-  var passengersArray = allPassengers.map((obj) => obj.passenger);
-  var passengerName = passengersArray.map((item) => item);
-  var passengersName = passengerName.join(", ");
-  const passengers = document.getElementById("passengers");
-  passengers.textContent = `${passengersName}`;
+  let passengersArray = $.map(allPassengers, (obj) => obj.passenger);
+  let passengerName = $.map(passengersArray, (item) => item);
+  let passengersName = passengerName.join(", ");
+  $("#passengers").text(`${passengersName}`);
 }
 
 async function reportsInfo(receivedContract) {

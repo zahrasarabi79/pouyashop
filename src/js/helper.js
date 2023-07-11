@@ -1,4 +1,19 @@
-//  با فرم . سریالایز کال می کنیم
+async function backPage(event) {
+  window.location.href = "./dashboard.html";
+}
+
+let getTokenStorage;
+
+(() => {
+  if (!localStorage.myToken && window.location.href.indexOf("login.html") < 0)
+    window.location.href = "http://localhost:5500/public/login.html";
+  else if (
+    localStorage.myToken &&
+    window.location.href.indexOf("login.html") >= 0
+  )
+    window.location.href = "http://localhost:5500/public/dashboard.html";
+})();
+
 HTMLElement.prototype.serialize = function () {
   var obj = {};
   // همه اینپوت ها ، سلکتور ها و تکس اریا ها رو انتخاب می کنه از داخل فرم و میریزه داخل المنت
@@ -15,6 +30,7 @@ HTMLElement.prototype.serialize = function () {
   }
   return obj;
 };
+
 function convertObjToUrlEncode(obj) {
   return Object.keys(obj)
     .map(function (key) {
@@ -50,9 +66,7 @@ function callPostApi(endpoint, data, contentType) {
 function callGetApi(endpoint, data, contentType) {
   return callApi(endpoint, "get", data);
 }
-
 async function backToList(endpoint, data, contentType) {
-  console.log("gfdg");
   try {
     const response = await callPostApi(endpoint, data, contentType);
     if (response.ok) {
@@ -64,26 +78,6 @@ async function backToList(endpoint, data, contentType) {
     console.log("didn't get response");
   }
 }
-// لینک این فانکش رو اول فایل اچ تی ام ال می گذاریم تا به عنوان اولین فانکشن فراخوانی شود. در این حالت با لود پیج در صورت وجود توکن از صفحه خارج نمی شویم
-(() => {
-  if (!localStorage.myToken && window.location.href.indexOf("login.html") < 0)
-    window.location.href = "http://localhost:5500/public/login.html";
-  else if (
-    localStorage.myToken &&
-    window.location.href.indexOf("login.html") >= 0
-  )
-    window.location.href = "http://localhost:5500/public/dashboard.html";
-})();
-// async function showContractInfo(receivedContract) {
-//   if (receivedContract) {
-//     const contractType = document.getElementById(contractType);
-//     contractType.textContent = `${receivedContract.id}`;
-//     console.log(receivedContract);
-//   } else {
-//     console.log("Contract not saved in local storage.");
-//   }
-// }
-// get response
 async function getResponse(users) {
   try {
     const response = await callPostApi("login", users, "json");
@@ -93,20 +87,6 @@ async function getResponse(users) {
     console.log("didn't get response");
   }
 }
-// save token in storage
-let getTokenStorage;
 const getstoragetoken = async (Token) => {
   localStorage.setItem("myToken", Token);
 };
-// let week;
-// async function getContract(contractId) {
-//   const contractRes = await callPostApi("showReports", contractId, "json");
-//   try {
-//     if (contractRes.ok) {
-//       const contractObj = await contractRes.json();
-//       return contractObj.Contracts[0];
-//     }
-//   } catch (error) {
-//     console.log("didn't get response");
-//   }
-// }

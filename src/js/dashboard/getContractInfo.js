@@ -18,7 +18,7 @@ async function contractsInformation() {
 }
 
 function showReport(objId) {
-   localStorage.setItem("id", objId);
+  localStorage.setItem("id", objId);
   window.location.href = "./showReports.html";
 }
 contractsInformation();
